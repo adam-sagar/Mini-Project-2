@@ -1,13 +1,14 @@
 import './App.css'
-import CardList from './components/CardList'
 import NavBar from './components/NavBar'
+import AppRoutes from './routes/AppRoutes'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <CardList />
+        <NavBar />
+        <AppRoutes />
     </div>
   )
 }
