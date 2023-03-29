@@ -12,9 +12,9 @@ function AppRoutes() {
 
             <Route path='/' element={<HomePage />} />
             
-            <Route path='/heroes' element={<CardPage />} >
+            <Route path='/characters' element={<CardPage />} >
                 <Route index element={<CardList />} />
-                <Route path=":id" element={<CardDetails />} />
+                <Route path=":characterid" element={<CardDetails />} />
             </Route>
 
         </Routes>

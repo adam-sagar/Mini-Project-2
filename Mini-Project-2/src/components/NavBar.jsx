@@ -11,13 +11,13 @@ function NavBar() {
 
     const navItems = [
         { label: 'Home', path: '/' },
-        { label: 'Heroes', path: '/heroes' }
+        { label: 'Characters', path: '/characters' }
     ];
 
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" sx={{ backgroundColor: 'midnightblue' }} >
                 <Toolbar>
                     <Typography
                         variant="h6"

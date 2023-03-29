@@ -2,25 +2,53 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios"
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 
 function CardDetails() {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
 
     const characterParams = useParams()
-    const characterid = characterParams.id
+    const characterid = characterParams.characterid
 
     useEffect(() => {
 
-        axios.get("https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json" +characterid)
-            .then((response) => setData(response.data))
+        axios.get("https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/"+characterid+".json")
+            .then((response) => {console.log(response.data); setData(response.data)})
             .catch((error) => console.log(error));
     }, [characterid]);
 
     return (
-        <div>
-            {data.name}
-        </div>
+        
+        <Card sx={{ width: 450 }}>
+            <CardMedia
+                sx={{ height: 500 }}
+                image={data.images.md}
+                title="green iguana"
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {data.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    <b>Race:</b> {data.appearance.race}
+                    <br />
+                    <b>Birthplace:</b> {data.biography.placeOfBirth}
+                    <br />
+                    <b>Occupation:</b> {data.work.occupation}
+                    <br />
+                    <b>Alignment:</b> {data.biography.alignment}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">Share</Button>
+            </CardActions>
+        </Card>
     )
 }
 

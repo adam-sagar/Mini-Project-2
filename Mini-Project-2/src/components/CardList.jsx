@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import SuperheroCard from "./CharacterCard"
-import { Grid } from '@mui/material';
-import Container from 'react-bootstrap/Container';
+import CharacterCard from "./CharacterCard"
+import { Grid } from '@mui/material'
+import Container from 'react-bootstrap/Container'
 
 function CardList() {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage, setItemsPerPage] = useState(20)
+
+    const indexOfLastRecord = currentPage * itemsPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - itemsPerPage;
+
+    const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
 
     useEffect(() => {
 
@@ -18,10 +25,10 @@ function CardList() {
     return (
         <div>
             <Container>
-                <Grid container spacing={8}>
+                <Grid container spacing={8} sx={{ marginTop: '100px' }}>
                     {data.map((character) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={character.id}>
-                            <SuperheroCard name={character.name} img={character.images.sm} publisher={character.biography.publisher} />
+                            <CharacterCard name={character.name} img={character.images.sm} publisher={character.biography.publisher} id={character.id} />
                         </Grid>
                     ))}
                 </Grid>
