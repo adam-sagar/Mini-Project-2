@@ -28,7 +28,7 @@ function CardDetails() {
         <Card sx={{ width: 450 }}>
             <CardMedia
                 sx={{ height: 500 }}
-                image={data.images.md}
+                image={data.images?.md}
                 title="green iguana"
             />
             <CardContent>
@@ -36,13 +36,13 @@ function CardDetails() {
                     {data.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    <b>Race:</b> {data.appearance.race}
+                    <b>Race:</b> {data.appearance?.race}
                     <br />
-                    <b>Birthplace:</b> {data.biography.placeOfBirth}
+                    <b>Birthplace:</b> {data.biography?.placeOfBirth}
                     <br />
-                    <b>Occupation:</b> {data.work.occupation}
+                    <b>Occupation:</b> {data.work?.occupation}
                     <br />
-                    <b>Alignment:</b> {data.biography.alignment}
+                    <b>Alignment:</b> {data.biography?.alignment}
                 </Typography>
             </CardContent>
             <CardActions>
