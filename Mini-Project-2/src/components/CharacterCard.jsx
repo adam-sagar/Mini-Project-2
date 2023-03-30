@@ -10,7 +10,7 @@ function CharacterCard(props) {
 
     return (
         
-        <Card sx={{ width: 275 }}>
+        <Card id='CharacterCard' sx={{ width: 275, boxShadow: '0px 2px 10px 2px rgba(0, 0, 0, 0.25)' }}>
             <Link to ={'/characters/' + props.id}>
                 <CardActionArea>
                     <CardMedia

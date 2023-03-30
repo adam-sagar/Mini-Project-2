@@ -46,9 +46,9 @@ function CardList() {
         
         <div>
             <Container>
-                <Grid container spacing={8} sx={{ marginTop: '100px' }}>
+                <Grid container spacing={8} sx={{ marginTop: '100px'}}>
                     {currentCharacters.map((character) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={character.id}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} key={character.id} >
                             <CharacterCard name={character.name} img={character.images.sm} publisher={character.biography.publisher} id={character.id} />
                         </Grid>
                     ))}

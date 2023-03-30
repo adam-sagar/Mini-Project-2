@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom'
+import { color } from '@mui/system'
 
 function CardDetails() {
 
@@ -29,9 +30,13 @@ function CardDetails() {
         setToggleName(!toggleName)
     }
 
+    const alignmentColor = {
+        color: data.biography?.alignment === 'bad' ? 'red' : 'green'
+    };
+
     return (
         
-        <Card sx={{ width: 400, marginTop: '100px' }}>
+        <Card id='CardDetails' sx={{width: 400, marginTop: '100px'}}>
             <CardMedia
                 sx={{ height: 400 }}
                 image={data.images?.md}
@@ -45,11 +50,13 @@ function CardDetails() {
                     <div><b>Race:</b> {data.appearance?.race}</div>
                     <div><b>Birthplace:</b> {data.biography?.placeOfBirth}</div>
                     <div><b>Occupation:</b> {data.work?.occupation}</div>
-                    <div><b>Alignment:</b> {data.biography?.alignment}</div>
+                    <div style={alignmentColor}><b>Alignment:</b> {data.biography?.alignment}</div>
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={revealIdentity}>Reveal Secret Identity</Button>
+                <Button size="small" onClick={revealIdentity}>
+                    {toggleName ? "Hide Secret Identity" : "Reveal Secret Identity"}
+                </Button>
                 {toggleName ? <div style={{ marginLeft: '10px' }}> {data.biography?.fullName}<br /></div> : null}
             </CardActions>
         </Card>
