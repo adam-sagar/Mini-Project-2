@@ -11,29 +11,21 @@ function CardList() {
     const [currentPage, setCurrentPage] = useState(1)
     const [currentCharacters, setCurrentCharacters] = useState([])
 
-    const charactersPerPage = 10
- 
-    // const indexOfLastRecord = currentPage * itemsPerPage;
-    // const indexOfFirstRecord = indexOfLastRecord - itemsPerPage;
-
-    // const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
-    // const nPages = Math.ceil(data.length / itemsPerPage);    
+    const charactersPerPage = 12
 
     useEffect(() => {
-
-        
-
         axios.get("https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json")
-            .then((response) => {console.log(response.data); setData(response.data); handleGetPage(response.data)})
+            .then((response) => {
+                console.log(response.data); setData(response.data);
+                setCurrentCharacters(response.data.splice(0, charactersPerPage))
+            })
             .catch((error) => console.log(error));
     }, []);
 
-    const handleGetPage = function(characters) {
-        const newData = characters ? characters : data
+    const handleGetPage = function(nextPage) {
         const offset = charactersPerPage * (nextPage - 1)
-        const nextPage = currentPage + 1
         setCurrentPage(nextPage)
-        setCurrentCharacters(newData.splice(offset, charactersPerPage)) 
+        setCurrentCharacters(data.splice(offset, charactersPerPage))
     }
 
     return (

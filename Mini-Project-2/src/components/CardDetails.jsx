@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography'
 
 function CardDetails() {
 
-    const [data, setData] = useState({});
+    const [data, setData] = useState({})
+    const [toggleName, setToggleName] = useState(false)
 
     const characterParams = useParams()
     const characterid = characterParams.characterid
@@ -22,6 +23,10 @@ function CardDetails() {
             .then((response) => {console.log(response.data); setData(response.data)})
             .catch((error) => console.log(error));
     }, [characterid]);
+
+    const revealIdentity = function() {
+        setToggleName(!toggleName)
+    }
 
     return (
         
@@ -43,10 +48,12 @@ function CardDetails() {
                     <b>Occupation:</b> {data.work?.occupation}
                     <br />
                     <b>Alignment:</b> {data.biography?.alignment}
+                    
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
+                <Button size="small" onClick={revealIdentity}>Reveal Secret Identity</Button>
+                {toggleName ? <div style={{ marginLeft: '10px' }}> {data.biography?.fullName}<br /></div> : null}
             </CardActions>
         </Card>
     )
