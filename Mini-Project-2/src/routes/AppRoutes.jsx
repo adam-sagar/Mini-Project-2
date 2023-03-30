@@ -9,14 +9,11 @@ function AppRoutes() {
     return (
 
         <Routes>
-
             <Route path='/' element={<HomePage />} />
-            
             <Route path='/characters' element={<CardPage />} >
                 <Route index element={<CardList />} />
                 <Route path=":characterid" element={<CardDetails />} />
             </Route>
-
         </Routes>
     )
 }

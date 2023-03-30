@@ -15,6 +15,7 @@ function NavBar() {
     ];
 
     return (
+
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar component="nav" sx={{ backgroundColor: 'midnightblue' }} >
@@ -22,7 +23,7 @@ function NavBar() {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontFamily: `'Bangers', cursive;`, fontSize: '1.5rem' } }}
                     >
                         Superhero Stats
                     </Typography>
@@ -32,7 +33,7 @@ function NavBar() {
                                 key={item.path}
                                 component={Link}
                                 to={item.path}
-                                sx={{ color: '#fff' }}
+                                sx={{ color: '#fff', fontFamily: 'Bangers', fontWeight: 'bold', fontSize: '1.5rem' }}
                             >
                                 {item.label}
                             </Button>

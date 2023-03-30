@@ -9,12 +9,13 @@ import { Link } from 'react-router-dom'
 function CharacterCard(props) {
 
     return (
-        <Card sx={{ maxWidth: 250 }}>
+        
+        <Card sx={{ width: 275 }}>
             <Link to ={'/characters/' + props.id}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="300"
+                        height="250"
                         image={props.img}
                         alt={props.name}
                     />

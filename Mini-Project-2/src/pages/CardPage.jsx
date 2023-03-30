@@ -1,12 +1,13 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
 
- function CardPage() {
+function CardPage() {
 
-  return (
-    <div>
-        <Outlet />
-    </div>
+    return (
+        
+        <div>
+            <Outlet />
+        </div>
   )
 }
 

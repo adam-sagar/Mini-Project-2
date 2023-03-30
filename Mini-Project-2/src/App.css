@@ -1,13 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 #root {
   margin: auto;
   padding: 2rem;
 }
 
 
- .CardList {
+.CardList {
   list-style-type: none;
- }
+}
 
- .secretIdentity {
-  margin-right: 10px;
- }
+.cardContent div {
+  margin: 10px 0;
+}
+
+.cardContent b {
+  color: midnightblue;
+}
+
+.HomePage {
+  width: 60%;
+  margin: auto;
+  text-align: justify;
+  font-family: 'Bangers', Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: yellow;
+  letter-spacing: 0.1em;
+  -webkit-text-stroke: 1px #000;
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+

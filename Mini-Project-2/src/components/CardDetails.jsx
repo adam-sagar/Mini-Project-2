@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import { Link } from 'react-router-dom'
 
 function CardDetails() {
 
@@ -30,25 +31,21 @@ function CardDetails() {
 
     return (
         
-        <Card sx={{ width: 450 }}>
+        <Card sx={{ width: 400, marginTop: '100px' }}>
             <CardMedia
-                sx={{ height: 500 }}
+                sx={{ height: 400 }}
                 image={data.images?.md}
-                title="green iguana"
+                title="data.name"
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {data.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    <b>Race:</b> {data.appearance?.race}
-                    <br />
-                    <b>Birthplace:</b> {data.biography?.placeOfBirth}
-                    <br />
-                    <b>Occupation:</b> {data.work?.occupation}
-                    <br />
-                    <b>Alignment:</b> {data.biography?.alignment}
-                    
+                <Typography variant="body2" color="text.secondary" className='cardContent'>
+                    <div><b>Race:</b> {data.appearance?.race}</div>
+                    <div><b>Birthplace:</b> {data.biography?.placeOfBirth}</div>
+                    <div><b>Occupation:</b> {data.work?.occupation}</div>
+                    <div><b>Alignment:</b> {data.biography?.alignment}</div>
                 </Typography>
             </CardContent>
             <CardActions>
