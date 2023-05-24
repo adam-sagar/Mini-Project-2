@@ -8,8 +8,6 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { Link } from 'react-router-dom'
-import { color } from '@mui/system'
 
 function CardDetails() {
 
@@ -54,9 +52,11 @@ function CardDetails() {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={revealIdentity}>
-                    {toggleName ? "Hide Secret Identity" : "Reveal Secret Identity"}
-                </Button>
+                {data.biography?.fullName && data.biography?.fullName !== data.name && ( // only shows the reveal secret identity button if it is given and different to their superhero name
+                    <Button size="small" onClick={revealIdentity}>
+                        {toggleName ? "Hide Secret Identity" : "Reveal Secret Identity"}
+                    </Button>
+                )}
                 {toggleName ? <div style={{ marginLeft: '10px' }}> {data.biography?.fullName}<br /></div> : null}
             </CardActions>
         </Card>
