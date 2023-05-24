@@ -1,9 +1,9 @@
-=====SUPERHERO STATS README=====
+===== SUPERHERO STATS README =====
 
 Welcome to Superhero Stats! This website was created for the Institute of Data's Software Engineering bootcamp. It is a React app designed to display character details for superheroes and their villains from an external API. This readme provides an overview of the website and its key features.
 
-y
------TECHNOLOGIES USED-----
+
+----- TECHNOLOGIES USED -----
 
 Superhero Stats is built using the following technologies:
 
@@ -18,7 +18,7 @@ Superhero Stats is built using the following technologies:
     -   Material-UI (MUI) is a React UI component library that follows Material Design principles, providing customizable components for an enhanced website experience.
 
 
------FEATURES-----
+----- FEATURES -----
 
 Superhero Stats offers the following key features:
 
@@ -39,7 +39,7 @@ Superhero Stats offers the following key features:
     Superhero Stats is designed with a responsive layout, ensuring optimal viewing and interaction across different devices and screen sizes. The Bootstrap and MUI libraries assist in creating a visually appealing and user-friendly experience on both desktop and mobile devices.
 
 
------DEPLOYMENT-----
+----- DEPLOYMENT -----
 
 To use Superhero Stats, follow these steps:
 
@@ -60,7 +60,7 @@ To use Superhero Stats, follow these steps:
     8   Enjoy exploring the world of superheroes and their villains!
 
 
------CREDITS-----
+----- CREDITS -----
 
 Superhero Stats was created by Adam Sagar. It utilizes data from an external API to provide superhero character details. Special thanks to akabab the API provider for making this project possible.
 
