@@ -41,6 +41,7 @@ function NavBar() {
                     </Box>
                 </Toolbar>
             </AppBar>
+            <Toolbar />
         </Box>
     );
 }
