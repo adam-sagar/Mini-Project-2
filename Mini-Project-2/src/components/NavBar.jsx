@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -6,8 +6,9 @@ import CssBaseline from '@mui/material/CssBaseline'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 
-function NavBar() {
+function NavBar({ searchQuery, handleSearch }) {
 
     const navItems = [
         { label: 'Home', path: '/' },
@@ -15,7 +16,6 @@ function NavBar() {
     ];
 
     return (
-
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar component="nav" sx={{ backgroundColor: 'midnightblue' }} >
@@ -39,6 +39,17 @@ function NavBar() {
                             </Button>
                         ))}
                     </Box>
+                    <TextField
+                        label="Search character..."
+                        variant="standard"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        sx={{
+                            input: { color: "white", borderBottom: '1px solid white' },
+                            label: { color: "white" },
+                            color: "#fff", marginLeft: "20px", width: "200px"
+                        }}
+                    />
                 </Toolbar>
             </AppBar>
             <Toolbar />
@@ -46,4 +57,4 @@ function NavBar() {
     );
 }
 
-export default NavBar
+export default NavBar;

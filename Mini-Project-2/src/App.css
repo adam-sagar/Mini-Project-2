@@ -57,21 +57,21 @@
   position: fixed;
   top: 120px;
   left: 120px;
-}
-
-.card-list {
-  margin-top: 100px;
-  padding: 20px;
+  z-index: 1;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .pagination {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

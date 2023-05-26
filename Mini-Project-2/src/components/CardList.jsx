@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
-import { Grid, TextField } from "@mui/material";
+import { Grid } from "@mui/material";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import NavBar from "./NavBar";
 
 function CardList() {
+
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentCharacters, setCurrentCharacters] = useState([]);
@@ -27,6 +29,7 @@ function CardList() {
     }, []);
 
     useEffect(() => {
+
         const filteredCharacters = data.filter((character) =>
             character.name.toLowerCase().startsWith(searchQuery.toLowerCase())
         );
@@ -38,6 +41,7 @@ function CardList() {
     }, [data, searchQuery]);
 
     const handleNextPage = () => {
+
         if (currentPage < maxPage) {
             const nextPage = currentPage + 1;
             const offset = charactersPerPage * (nextPage - 1);
@@ -47,6 +51,7 @@ function CardList() {
     };
 
     const handlePrevPage = () => {
+
         if (currentPage > 1) {
             const prevPage = currentPage - 1;
             const offset = charactersPerPage * (prevPage - 1);
@@ -61,17 +66,8 @@ function CardList() {
 
     return (
         <div>
-            <div className="search-bar">
-                <TextField
-                    label="Search character..."
-                    variant="outlined"
-                    value={searchQuery}
-                    onChange={handleSearch}
-                    fullWidth
-                    sx={{ width: "200px", marginBottom: "30px" }}
-                />
-            </div>
-            <Container className="card-list">
+            <NavBar searchQuery={searchQuery} handleSearch={handleSearch} />
+            <Container>
                 {currentCharacters.length === 0 ? (
                     <p className="results">No results found.</p>
                 ) : (
