@@ -1,15 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment'; 
+import SearchIcon from '@mui/icons-material/Search';
 
 function NavBar({ searchQuery, handleSearch }) {
-
     const navItems = [
         { label: 'Home', path: '/' },
         { label: 'Characters', path: '/characters' }
@@ -18,7 +19,7 @@ function NavBar({ searchQuery, handleSearch }) {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar component="nav" sx={{ backgroundColor: 'midnightblue' }} >
+            <AppBar component="nav" sx={{ backgroundColor: 'midnightblue' }}>
                 <Toolbar>
                     <Typography
                         variant="h6"
@@ -40,14 +41,23 @@ function NavBar({ searchQuery, handleSearch }) {
                         ))}
                     </Box>
                     <TextField
-                        label="Search character..."
+                        placeholder="Search characters"
                         variant="standard"
                         value={searchQuery}
                         onChange={handleSearch}
-                        sx={{
-                            input: { color: "white", borderBottom: '1px solid white' },
-                            label: { color: "white" },
-                            color: "#fff", marginLeft: "20px", width: "200px"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon style={{ color: 'white' }} />
+                                </InputAdornment>
+                            ),
+                            sx: {
+                                input: { color: 'white', borderBottom: '1px solid white' },
+                                label: { color: 'white' },
+                                color: '#fff',
+                                marginLeft: '20px',
+                                width: '200px'
+                            }
                         }}
                     />
                 </Toolbar>
